@@ -1,4 +1,3 @@
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
@@ -12,7 +11,10 @@ load("@io_bazel_rules_dotnet//dotnet:deps.bzl", "dotnet_repositories")
 
 dotnet_repositories()
 
-load("@io_bazel_rules_dotnet//dotnet:defs.bzl", "core_register_sdk", "net_register_sdk")
+load("@io_bazel_rules_dotnet//dotnet:defs.bzl", "core_register_sdk", "net_register_sdk", "mono_register_sdk",
+    "dotnet_register_toolchains", "dotnet_repositories_nugets", "nuget_package")
 
-core_register_sdk()
-net_register_sdk()
+dotnet_register_toolchains()
+dotnet_repositories_nugets()
+core_register_sdk(name="dotnet_sdk")
+net_register_sdk(name="net_sdk")
