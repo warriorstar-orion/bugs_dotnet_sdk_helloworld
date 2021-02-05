@@ -6,7 +6,7 @@ namespace example_tool
     {
         public static void Main(string[] args)
         {
-          Console.WriteLine("ok");
+          System.Console.WriteLine("ok");
         }
     }
 }
